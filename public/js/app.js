@@ -2208,11 +2208,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      drawer: null
+      drawer: null,
+      user: {
+        email: null,
+        password: null
+      }
     };
   },
   props: {
@@ -2220,8 +2223,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      this.$router.push({
-        name: 'home'
+      axios.post('/api/auth/login', {
+        email: this.user.email,
+        password: this.user.password
+      }, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }).then(function (response) {
+        console.log(response.data); //this.$router.push({ name: 'home' })
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }
@@ -38451,6 +38463,13 @@ var render = function() {
                                           name: "login",
                                           label: "Login",
                                           type: "text"
+                                        },
+                                        model: {
+                                          value: _vm.user.email,
+                                          callback: function($$v) {
+                                            _vm.$set(_vm.user, "email", $$v)
+                                          },
+                                          expression: "user.email"
                                         }
                                       }),
                                       _vm._v(" "),
@@ -38461,6 +38480,13 @@ var render = function() {
                                           label: "Password",
                                           id: "password",
                                           type: "password"
+                                        },
+                                        model: {
+                                          value: _vm.user.password,
+                                          callback: function($$v) {
+                                            _vm.$set(_vm.user, "password", $$v)
+                                          },
+                                          expression: "user.password"
                                         }
                                       })
                                     ],
@@ -77375,8 +77401,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('login-component', _compone
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Bitnami\wampstack-7.1.15-0\apache2\htdocs\spa\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.1.15-0\apache2\htdocs\spa\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Bitnami\wampstack-7.1.25-0\apache2\htdocs\laravel-vutify-boilerplate\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.1.25-0\apache2\htdocs\laravel-vutify-boilerplate\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

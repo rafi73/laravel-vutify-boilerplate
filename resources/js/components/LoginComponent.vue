@@ -18,9 +18,8 @@
                                 </v-toolbar>
                                 <v-card-text>
                                     <v-form>
-                                        <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
-                                        <v-text-field prepend-icon="lock" name="password" label="Password" id="password"
-                                            type="password"></v-text-field>
+                                        <v-text-field prepend-icon="person" name="login" label="Login" type="text" v-model="user.email"></v-text-field>
+                                        <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password" v-model="user.password"></v-text-field>
                                     </v-form>
                                 </v-card-text>
                                 <v-card-actions>
@@ -39,7 +38,11 @@
 <script>
     export default {
         data: () => ({
-            drawer: null
+            drawer: null,
+            user:{
+                email: null,
+                password: null
+            }
         }),
 
         props: {
@@ -47,7 +50,21 @@
         },
         methods:{
             login(){
-                this.$router.push({ name: 'home' })
+                axios.post('/api/auth/login',
+                    { email: this.user.email, password: this.user.password },
+                    { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                    .then(
+                        (response) => {
+                            console.log(response.data)
+
+                           //this.$router.push({ name: 'home' })
+                        }
+                    )
+                    .catch(
+                        (error) => {
+                            console.log(error)
+                        }
+                    );
             }
         }
     }
