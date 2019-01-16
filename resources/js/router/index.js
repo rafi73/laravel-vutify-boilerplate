@@ -26,7 +26,10 @@ export default new Router({
         {
             path: '/admin/login',
             name: 'login',
-            meta: 'login'
+            meta: 
+            { 
+                requiresAuth : false
+            }
         },
         { 
             path: '/admin/home', 
@@ -36,7 +39,7 @@ export default new Router({
             { 
                 name: 'ホーム', 
                 icon: 'home' ,
-                type: 'admin'
+                requiresAuth : true
             } 
         },
         { 
@@ -47,7 +50,7 @@ export default new Router({
             { 
                 name: '社員管理', 
                 icon: 'supervisor_account',
-                type: 'admin'
+                requiresAuth : true
             } 
         },
     ],

@@ -33,13 +33,13 @@
                 return this.$store.getters.isAuthenticated
             },
             isAdmin: function () {
-                return this.$route.meta.type === 'admin'
+                return this.$route.meta.requiresAuth === true
             },
             meta: function () {
                 return this.$store.state.pageMetaStore
             },
             isLogin: function () {
-                return this.$route.meta === 'login'
+                return this.$route.meta.requiresAuth === false
             },
             isHome: function () {
                 return this.$route.meta === 'home'
