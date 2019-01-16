@@ -26,24 +26,11 @@ const store = new Vuex.Store(StoreData);
 // Vue-Router
 import router from './router'
 
-import VeeValidate from 'vee-validate'
 
-Vue.use(VeeValidate, { delay: 250 })
+import validation from './helpers/validation';
+import {initialize} from './helpers/general';
+initialize(store, router);
 
-Vue.mixin({
-    $_veeValidate: {
-        validator: 'new'
-    },
-    methods: {
-        async formHasErrors() {
-            const valid = await this.$validator.validateAll()
-            if (valid) {
-                this.$validator.pause()
-            }
-            return !valid
-        }
-    }
-})
 
 
 // Main app

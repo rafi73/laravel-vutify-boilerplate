@@ -10,6 +10,7 @@ export function initialize(store, router) {
         } else {
             next();
         }
+
     });
     
     axios.interceptors.response.use(null, (error) => {
@@ -27,6 +28,5 @@ export function initialize(store, router) {
 }
 
 export function setAuthorization(token) {
-    console.log(token)
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
 }

@@ -60,6 +60,7 @@
 
         methods: {
             axiosLogout: function () {
+                this.$store.commit('logout');
                 this.$router.push({ name: 'login' })
             },
         },
