@@ -15,6 +15,7 @@ Frontend
 Host for development [WINDOWS]
 1. create new virtual domain - vi /c/Windows/System32/drivers/etc/hosts  	
 2. create new configuration - [YOUR_APACHE_PATH]\apache2\conf\extra\httpd-vhosts.conf
+3. Update webpack.mix.js file and replace "spa.work" with your virtual domain for auto page refresh on page save
 
 API development
 1. php artisan make:model XxxYyyZzz -mcf
