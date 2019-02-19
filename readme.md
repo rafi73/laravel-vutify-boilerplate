@@ -12,7 +12,7 @@ Frontend
 1. npm install
 2. npm run watch / npm run dev
 
-Host for development
+Host for development [WINDOWS]
 1. create new virtual domain - vi /c/Windows/System32/drivers/etc/hosts  	
 2. create new configuration - [YOUR_APACHE_PATH]\apache2\conf\extra\httpd-vhosts.conf
 
