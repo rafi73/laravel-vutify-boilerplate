@@ -14,7 +14,7 @@ Frontend
 
 Host for development
 1. create new virtual domain - vi /c/Windows/System32/drivers/etc/hosts  	
-2. create new configuration - C:\Bitnami\wampstack-7.1.15-0\apache2\conf\extra\httpd-vhosts.conf
+2. create new configuration - [YOUR_APACHE_PATH]\apache2\conf\extra\httpd-vhosts.conf
 
 API development
 1. php artisan make:model XxxYyyZzz -mcf
